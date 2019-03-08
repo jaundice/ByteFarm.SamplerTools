@@ -1,7 +1,7 @@
-using Commons.Music.Midi;
-using NUnit.Framework;
 using System;
 using System.Linq;
+using Commons.Music.Midi;
+using NUnit.Framework;
 
 namespace Tests
 {
@@ -17,7 +17,7 @@ namespace Tests
         [Test]
         public void Test1()
         {
-            IMidiAccess connection = MidiAccessManager.Default;
+            var connection = MidiAccessManager.Default;
 
             connection.Inputs.ToList().ForEach(a => Console.WriteLine(a.ToString()));
 
@@ -27,7 +27,7 @@ namespace Tests
         [Test]
         public void Test2()
         {
-            IMidiAccess connection = MidiAccessManager.Default;
+            var connection = MidiAccessManager.Default;
 
 
             var inputPort = connection.Inputs.First(a => a.Name == S3000Port);

@@ -9,5 +9,5 @@ namespace ByteFarm.SamplerTools
         {
             AvaloniaXamlLoader.Load(this);
         }
-   }
+    }
 }

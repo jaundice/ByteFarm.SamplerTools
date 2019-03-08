@@ -1,8 +1,7 @@
-﻿namespace ByteFarm.SamplerTools.Midi.Sysex.Akai.Z
+﻿namespace ByteFarm.SamplerTools.Midi.SysEx.Akai.Z
 {
-    public static class ZSysexConstants
+    public static class ZSysExConstants
     {
-        public const byte Akai = 0x47;
         public const byte ZMPC4000DeviceTypeId = 0x54;
     }
 }

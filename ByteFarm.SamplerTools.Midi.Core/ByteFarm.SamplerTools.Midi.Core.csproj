@@ -8,9 +8,4 @@
     <PackageReference Include="managed-midi" Version="1.7.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ByteFarm.SamplerTools.Midi.Sysex.Akai\ByteFarm.SamplerTools.Midi.Sysex.Akai.csproj" />
-    <ProjectReference Include="..\ByteFarm.SamplerTools.Midi.Sysex.Common\ByteFarm.SamplerTools.Midi.Sysex.Common.csproj" />
-  </ItemGroup>
-
 </Project>

@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteFarm.SamplerTools.Midi.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteFarm.SamplerTools.Models.Akai", "ByteFarm.SamplerTools.Models.Akai\ByteFarm.SamplerTools.Models.Akai.csproj", "{087C88E4-3F66-4CBA-A8BC-F543C8DEBF96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteFarm.SamplerTools.Midi.Sysex.Akai", "ByteFarm.SamplerTools.Midi.Sysex.Akai\ByteFarm.SamplerTools.Midi.Sysex.Akai.csproj", "{29CAADB7-6A14-4037-A405-6DB9864DCAEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteFarm.SamplerTools.Midi.SysEx.Akai", "ByteFarm.SamplerTools.Midi.Sysex.Akai\ByteFarm.SamplerTools.Midi.SysEx.Akai.csproj", "{29CAADB7-6A14-4037-A405-6DB9864DCAEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteFarm.SamplerTools.Midi.Sysex.Common", "ByteFarm.SamplerTools.Midi.Sysex.Common\ByteFarm.SamplerTools.Midi.Sysex.Common.csproj", "{1101482E-F50E-4F79-93E5-61C29859ED60}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteFarm.SamplerTools.Midi.SysEx.Common", "ByteFarm.SamplerTools.Midi.Sysex.Common\ByteFarm.SamplerTools.Midi.SysEx.Common.csproj", "{1101482E-F50E-4F79-93E5-61C29859ED60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

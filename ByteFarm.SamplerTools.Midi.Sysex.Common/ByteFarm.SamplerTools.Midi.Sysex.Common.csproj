@@ -4,4 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ByteFarm.SamplerTools.Midi.Core\ByteFarm.SamplerTools.Midi.Core.csproj" />
+  </ItemGroup>
+
 </Project>

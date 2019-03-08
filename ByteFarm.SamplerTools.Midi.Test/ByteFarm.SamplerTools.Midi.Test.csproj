@@ -13,4 +13,10 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ByteFarm.SamplerTools.Midi.Core\ByteFarm.SamplerTools.Midi.Core.csproj" />
+    <ProjectReference Include="..\ByteFarm.SamplerTools.Midi.Sysex.Akai\ByteFarm.SamplerTools.Midi.SysEx.Akai.csproj" />
+    <ProjectReference Include="..\ByteFarm.SamplerTools.Midi.Sysex.Common\ByteFarm.SamplerTools.Midi.SysEx.Common.csproj" />
+  </ItemGroup>
+
 </Project>
