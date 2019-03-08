@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.438
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteFarm.SamplerTools", "SamplerTools\ByteFarm.SamplerTools.csproj", "{2221848E-AF12-4144-85B0-0F4CE8677034}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteFarm.SamplerTools.Midi.Core", "ByteFarm.SamplerTools.Midi.Core\ByteFarm.SamplerTools.Midi.Core.csproj", "{092EA4AD-160C-4D2B-A35F-AD77D04A8989}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteFarm.SamplerTools.Midi.Test", "ByteFarm.SamplerTools.Midi.Test\ByteFarm.SamplerTools.Midi.Test.csproj", "{DF17441C-F682-4188-9B3E-D2A3EDA76F08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteFarm.SamplerTools.Models.Akai", "ByteFarm.SamplerTools.Models.Akai\ByteFarm.SamplerTools.Models.Akai.csproj", "{087C88E4-3F66-4CBA-A8BC-F543C8DEBF96}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2221848E-AF12-4144-85B0-0F4CE8677034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2221848E-AF12-4144-85B0-0F4CE8677034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2221848E-AF12-4144-85B0-0F4CE8677034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2221848E-AF12-4144-85B0-0F4CE8677034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{092EA4AD-160C-4D2B-A35F-AD77D04A8989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{092EA4AD-160C-4D2B-A35F-AD77D04A8989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{092EA4AD-160C-4D2B-A35F-AD77D04A8989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{092EA4AD-160C-4D2B-A35F-AD77D04A8989}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF17441C-F682-4188-9B3E-D2A3EDA76F08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF17441C-F682-4188-9B3E-D2A3EDA76F08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF17441C-F682-4188-9B3E-D2A3EDA76F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF17441C-F682-4188-9B3E-D2A3EDA76F08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{087C88E4-3F66-4CBA-A8BC-F543C8DEBF96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{087C88E4-3F66-4CBA-A8BC-F543C8DEBF96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{087C88E4-3F66-4CBA-A8BC-F543C8DEBF96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{087C88E4-3F66-4CBA-A8BC-F543C8DEBF96}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E08593E-3267-4A76-88D8-FE192AA71E21}
+	EndGlobalSection
+EndGlobal
