@@ -14,13 +14,13 @@ namespace ByteFarm.SamplerTools.Midi.Core
         [Test]
         public async Task TestConnect()
         {
-            var api = MidiAccessManager.Empty;
+            var api = MidiAccessManager.Default;
             var output = await api.OpenOutputAsync(api.Outputs.First(a => a.Name == "DIN 4").Id);
 
             byte[] msg =
             {
                 SysExConstants.SysExMessageStart, AkaiConstants.AkaiManufacturerId,
-                ZSysExConstants.ZMPC4000DeviceTypeId, 0x0
+                ZSysExConstants.ZMPC4000DeviceTypeId, 0x0, SysExConstants.SysExMessageEnd
             };
 
             output.Send(msg, 0, msg.Length, 0);

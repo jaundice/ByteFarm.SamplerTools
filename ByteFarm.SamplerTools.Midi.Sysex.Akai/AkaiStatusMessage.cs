@@ -4,6 +4,9 @@ namespace ByteFarm.SamplerTools.Midi.SysEx.Akai
 {
     public abstract class AkaiStatusMessage : StatusMessageBase
     {
-        public override byte ManufacturerId => AkaiConstants.AkaiManufacturerId;
+        protected AkaiStatusMessage(byte deviceTypeId, byte uniqueDeviceId) : base(AkaiConstants.AkaiManufacturerId,
+            deviceTypeId, uniqueDeviceId)
+        {
+        }
     }
 }

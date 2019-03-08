@@ -1,19 +1,24 @@
-﻿using System;
-using ByteFarm.SamplerTools.Midi.Core;
+﻿using ByteFarm.SamplerTools.Midi.Core;
+using System;
+using System.IO;
 
 namespace ByteFarm.SamplerTools.Midi.SysEx.Common
 {
     public abstract class StatusMessageBase : IMidiMessage
     {
-        public abstract byte ManufacturerId { get; }
+        public byte ManufacturerId { get; }
 
-        public abstract byte DeviceTypeId { get; }
+        public byte DeviceTypeId { get; }
 
-        public abstract byte UniqueDeviceId { get; }
+        public byte UniqueDeviceId { get; }
 
-        public byte[] FormatToMidiBytes()
+        protected StatusMessageBase(byte manufacturerId, byte deviceTypeId, byte uniqueDeviceId)
         {
-            throw new NotImplementedException();
+            ManufacturerId = manufacturerId;
+            DeviceTypeId = deviceTypeId;
+            UniqueDeviceId = uniqueDeviceId;
         }
+
+        public abstract byte[] FormatToMidiBytes();
     }
 }

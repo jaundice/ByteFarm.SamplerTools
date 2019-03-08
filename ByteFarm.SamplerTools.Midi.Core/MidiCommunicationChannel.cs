@@ -33,6 +33,11 @@ namespace ByteFarm.SamplerTools.Midi.Core
             Input.MessageReceived += Input_MessageReceived;
         }
 
+        public MidiCommunicationChannel(MidiPortDetails input, MidiPortDetails output) : this(input.Id, output.Id)
+        {
+        }
+
+
         public MidiCommunicationChannel(string inputNameOrId, string outputNameOrId) : this(MidiAccessManager.Default,
             inputNameOrId, outputNameOrId)
         {
