@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="S1000\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ByteFarm.SamplerTools.Midi.Core\ByteFarm.SamplerTools.Midi.Core.csproj" />
     <ProjectReference Include="..\ByteFarm.SamplerTools.Midi.Sysex.Common\ByteFarm.SamplerTools.Midi.SysEx.Common.csproj" />
   </ItemGroup>

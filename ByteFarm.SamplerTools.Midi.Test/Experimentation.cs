@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using ByteFarm.SamplerTools.Midi.SysEx.Akai;
+using ByteFarm.SamplerTools.Midi.SysEx.Akai.SXL;
 using ByteFarm.SamplerTools.Midi.SysEx.Akai.Z;
 using ByteFarm.SamplerTools.Midi.SysEx.Common;
 using Commons.Music.Midi;
@@ -17,13 +18,9 @@ namespace ByteFarm.SamplerTools.Midi.Core
             var api = MidiAccessManager.Default;
             var output = await api.OpenOutputAsync(api.Outputs.First(a => a.Name == "DIN 4").Id);
 
-            byte[] msg =
-            {
-                SysExConstants.SysExMessageStart, AkaiConstants.AkaiManufacturerId,
-                ZSysExConstants.ZMPC4000DeviceTypeId, 0x0, SysExConstants.SysExMessageEnd
-            };
+            var msg = new SXLStatusMessage(0).FormatToMidiBytes();
 
-            output.Send(msg, 0, msg.Length, 0);
+            output.Send(msg, 0, 0, 0);
         }
     }
 }

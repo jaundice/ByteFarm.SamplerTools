@@ -57,7 +57,10 @@ namespace ByteFarm.SamplerTools.Midi.Core
         public MidiPortDetails InputPortDetails { get; }
 
         public static List<MidiPortDetails> AvailableMidiInputPorts =>
-            MidiAccessManager.Empty.Inputs.Select(a => new MidiPortDetails(a)).ToList();
+            MidiAccessManager.Default.Inputs.Select(a => new MidiPortDetails(a)).ToList();
+
+        public static List<MidiPortDetails> AvailableMidiOutputPorts =>
+            MidiAccessManager.Default.Outputs.Select(a => new MidiPortDetails(a)).ToList();
 
         public bool Disposed { get; private set; }
 
@@ -105,7 +108,7 @@ namespace ByteFarm.SamplerTools.Midi.Core
 
             var bytes = message.FormatToMidiBytes();
 
-            Output.Send(bytes, 0, bytes.Length, ts);
+            Output.Send(bytes, 0, 0, ts);
         }
 
         public class MidiPortDetails

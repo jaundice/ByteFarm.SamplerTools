@@ -20,6 +20,7 @@ namespace ByteFarm.SamplerTools.Midi.SysEx.Akai.Z
                 sr.Write(UniqueDeviceId);
                 sr.Write(SysExConstants.SysExMessageEnd);
 
+                sr.Flush();
                 return mem.ToArray();
             }
         }
