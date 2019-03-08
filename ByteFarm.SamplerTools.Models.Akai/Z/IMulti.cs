@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ByteFarm.SamplerTools.Models.Akai.S3000
+namespace ByteFarm.SamplerTools.Models.Akai.Z
 {
     public interface IMulti
     {

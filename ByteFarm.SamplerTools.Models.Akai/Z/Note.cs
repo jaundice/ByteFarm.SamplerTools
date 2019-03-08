@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ByteFarm.SamplerTools.Models.Akai.S3000
+namespace ByteFarm.SamplerTools.Models.Akai.Z
 {
     public struct Note : IComparable<Note>
     {

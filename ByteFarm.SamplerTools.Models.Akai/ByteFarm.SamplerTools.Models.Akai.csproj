@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Z4\" />
+    <Folder Include="S3000\" />
     <Folder Include="S5000\" />
     <Folder Include="S900\" />
     <Folder Include="S1000\" />
