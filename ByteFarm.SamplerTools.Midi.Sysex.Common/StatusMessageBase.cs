@@ -12,6 +12,9 @@ namespace ByteFarm.SamplerTools.Midi.SysEx.Common
 
         public byte UniqueDeviceId { get; }
 
+        public int Offset => 0;
+        public int Length => 0;
+
         protected StatusMessageBase(byte manufacturerId, byte deviceTypeId, byte uniqueDeviceId)
         {
             ManufacturerId = manufacturerId;

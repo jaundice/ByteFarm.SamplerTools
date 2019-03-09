@@ -108,7 +108,7 @@ namespace ByteFarm.SamplerTools.Midi.Core
 
             var bytes = message.FormatToMidiBytes();
 
-            Output.Send(bytes, 0, 0, ts);
+            Output.Send(bytes, message.Offset, message.Length, ts);
         }
 
         public class MidiPortDetails
