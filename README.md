@@ -9,4 +9,6 @@ Initial plan is to develop a cross platform library covering Windows / OSX / Lin
 After that I plan on developing a cross platform UI with which the samplers can be controlled.
 
 The library is being designed in such a way that other samplers can be added easily
+
+Along the way I'll be adding object models for the sampler's storage of presets whcih I also hope to be able to use to create presets which can then be copied over to the sampler
   
