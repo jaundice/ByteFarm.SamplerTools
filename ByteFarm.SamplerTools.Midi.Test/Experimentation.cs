@@ -20,7 +20,7 @@ namespace ByteFarm.SamplerTools.Midi.Core
 
             var msg = new SXLStatusMessage(0).FormatToMidiBytes();
 
-            output.Send(msg, 0, 0, 0);
+            output.Send(msg, 0, msg.Length, 0);
         }
     }
 }
