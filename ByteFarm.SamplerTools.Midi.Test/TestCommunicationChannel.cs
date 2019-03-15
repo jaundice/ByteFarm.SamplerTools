@@ -33,11 +33,19 @@ namespace Tests
 
                 comms.SendMidiMessage(msg);
 
-                Thread.Sleep(500);
+                Thread.Sleep(2000);
                 msg = ChannelVoiceMessage.NoteOff(MidiChannel.One, 80, 30);
+
 
                 DebugMessage(msg);
                 comms.SendMidiMessage(msg);
+
+
+                comms.NoteOn(MidiChannel.One, 80, 127);
+
+                Thread.Sleep(2000);
+
+                comms.NoteOff(MidiChannel.One, 80, 20);
 
                 //comms.SendMidiMessage(new ZStatusMessage(0));
                 //comms.SendMidiMessage(new RawMidiMessage(new byte[] { 0xF0, 0x47, 0x1, 0x0, 0x48, 0xF7 }, 0, 0));
