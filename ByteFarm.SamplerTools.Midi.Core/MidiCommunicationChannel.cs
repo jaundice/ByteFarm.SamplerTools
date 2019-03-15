@@ -74,7 +74,11 @@ namespace ByteFarm.SamplerTools.Midi.Core
             var response = new MidiResponse(e.Data);
             if (_responseHandlers.TryRemove(e.Timestamp, out var handler)) handler(response);
 
-            MidiResponse?.Invoke(this, new MidiResponseReceivedEventArgs(response));
+
+            if (MidiResponse != null)
+            {
+                MidiResponse(this, new MidiResponseReceivedEventArgs(response));
+            }
         }
 
         private void Dispose(bool disposing)

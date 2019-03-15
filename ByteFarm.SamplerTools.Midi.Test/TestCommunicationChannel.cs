@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using ByteFarm.SamplerTools.Midi.Core.Messages;
+using ByteFarm.SamplerTools.Midi.SysEx.Akai;
 using ByteFarm.SamplerTools.Midi.SysEx.Akai.SXL;
 using ByteFarm.SamplerTools.Midi.SysEx.Akai.Z;
 
@@ -12,29 +13,25 @@ namespace Tests
     [TestFixture]
     public class TestCommunicationChannel
     {
+
+        private string TestPort = TestConstants.S1100Port;
+        private int TestMidiChannel = MidiChannel.One;
+
+
         [Test]
-        public void TestChannel()
+        public void TestNoteOnOff()
         {
-
-            Console.WriteLine(string.Join(", ", MidiCommunicationChannel.AvailableMidiInputPorts.Select(a => a.Name)));
-
             using (MidiCommunicationChannel comms =
-                new MidiCommunicationChannel("DIN 1", "DIN 1"))
+                new MidiCommunicationChannel(TestPort, TestPort))
             {
-
-                comms.MidiResponse += MidiResponse;
-                Console.WriteLine("Sending Message");
-               // comms.SendMidiMessage(new SXLStatusMessage(0));
-
-                Thread.Sleep(200);
-                var msg = ChannelVoiceMessage.NoteOn(MidiChannel.One, 80, 127);
+                var msg = ChannelVoiceMessage.NoteOn(TestMidiChannel, 80, 127);
 
                 DebugMessage(msg);
 
                 comms.SendMidiMessage(msg);
 
                 Thread.Sleep(2000);
-                msg = ChannelVoiceMessage.NoteOff(MidiChannel.One, 80, 30);
+                msg = ChannelVoiceMessage.NoteOff(TestMidiChannel, 80, 30);
 
 
                 DebugMessage(msg);
@@ -46,11 +43,46 @@ namespace Tests
                 Thread.Sleep(2000);
 
                 comms.NoteOff(MidiChannel.One, 80, 20);
+            }
+        }
+
+
+        [Test]
+        public void TestChannel()
+        {
+
+            Console.WriteLine(string.Join(", ", MidiCommunicationChannel.AvailableMidiInputPorts.Select(a => a.Name)));
+
+            using (MidiCommunicationChannel comms =
+                new MidiCommunicationChannel(TestPort, TestPort))
+            {
+
+                comms.MidiResponse += MidiResponse;
+                Console.WriteLine("Sending Message");
+
+                var status = new SXLStatusMessage(0);
+
+                DebugMessage(status);
+
+                comms.SendMidiMessage(status, a => Console.Write("made it back"));
+
+                Thread.Sleep(200);
+
+
+
+
+
+                Console.WriteLine("Response");
+                Console.WriteLine(response == null ? "No Response" : string.Join("", response.RawData.Select(a => a.ToString("x2"))));
+
+                if (response != null)
+                {
+                    var parsed = new AkaiSysExResponseParser().Parse(response.RawData);
+                }
 
                 //comms.SendMidiMessage(new ZStatusMessage(0));
                 //comms.SendMidiMessage(new RawMidiMessage(new byte[] { 0xF0, 0x47, 0x1, 0x0, 0x48, 0xF7 }, 0, 0));
 
-                Thread.Sleep(5000);
             }
         }
 
@@ -58,13 +90,16 @@ namespace Tests
         {
             var bytes = msg.FormatToMidiBytes();
 
-            Console.WriteLine(string.Join("", bytes.Select(a => a.ToString("x"))));
+            Console.WriteLine(string.Join("", bytes.Select(a => a.ToString("x2"))));
         }
+
+        private IMidiResponse response = null;
+
 
         private void MidiResponse(object sender, MidiResponseReceivedEventArgs e)
         {
-            Console.Write("Response Received");
-            Console.Write(e.Response.RawData);
+
+            response = e.Response;
         }
     }
 }

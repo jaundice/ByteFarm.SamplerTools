@@ -1,6 +1,6 @@
 ﻿namespace ByteFarm.SamplerTools.Midi.Core
 {
-    internal class MidiResponse : IMidiResponse
+    public class MidiResponse : IMidiResponse
     {
         public MidiResponse(byte[] rawData)
         {

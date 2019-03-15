@@ -17,7 +17,7 @@ namespace ByteFarm.SamplerTools.Midi.SysEx.Akai.SXL
             {
                 sr.Write((byte)SysExConstants.SysExMessageStart); //0xF0
                 sr.Write((byte)AkaiConstants.AkaiManufacturerId); //0x47
-                sr.Write((byte)UniqueDeviceId); //exclusive id
+                sr.Write((byte)(UniqueDeviceId & 127)); //exclusive id
                 sr.Write((byte)S1000FunctionCode.RSTAT); //function code
                 sr.Write((byte)SXLSysExConstants.SXLDeviceTypeId); // 0x48 S1000
                 sr.Write((byte)SysExConstants.SysExMessageEnd); //0xF7
