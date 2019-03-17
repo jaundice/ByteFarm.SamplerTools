@@ -6,6 +6,7 @@ using ByteFarm.SamplerTools.Midi.SysEx.Akai.Z;
 using ByteFarm.SamplerTools.Midi.SysEx.Common;
 using Commons.Music.Midi;
 using NUnit.Framework;
+using Tests;
 
 namespace ByteFarm.SamplerTools.Midi.Core
 {
@@ -16,7 +17,7 @@ namespace ByteFarm.SamplerTools.Midi.Core
         public async Task TestConnect()
         {
             var api = MidiAccessManager.Default;
-            var output = await api.OpenOutputAsync(api.Outputs.First(a => a.Name == "DIN 4").Id);
+            var output = await api.OpenOutputAsync(api.Outputs.First(a => a.Name == TestConstants.S3000XLPort).Id);
 
             var msg = new SXLStatusMessage(0).FormatToMidiBytes();
 

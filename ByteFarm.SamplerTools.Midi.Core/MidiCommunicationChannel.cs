@@ -84,14 +84,16 @@ namespace ByteFarm.SamplerTools.Midi.Core
         private void Dispose(bool disposing)
         {
             if (disposing)
-                if (!Disposed)
-                {
-                    if (Input != null) Input.MessageReceived -= Input_MessageReceived;
+            {
+                if (Input != null) Input.MessageReceived -= Input_MessageReceived;
+                if (Input != null)
+                    Input.CloseAsync();
 
-                    Input?.Dispose();
-                    Output?.Dispose();
-                    Disposed = true;
-                }
+                if (Output != null)
+                    Output.CloseAsync();
+                Disposed = true;
+                GC.SuppressFinalize(this);
+            }
         }
 
         public long GetNextTimestamp()

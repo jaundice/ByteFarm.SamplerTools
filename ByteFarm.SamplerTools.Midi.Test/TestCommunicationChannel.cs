@@ -14,13 +14,23 @@ namespace Tests
     public class TestCommunicationChannel
     {
 
-        private string TestPort = TestConstants.S1100Port;
+        private string TestPort =  TestConstants.S1100Port;
         private int TestMidiChannel = MidiChannel.One;
+
+        [Test]
+        public void ListMidiPorts()
+        {
+            Console.WriteLine(string.Join(", ", MidiCommunicationChannel.AvailableMidiInputPorts.Select(a => a.Name).ToList())); 
+            Console.WriteLine(string.Join(", ", MidiCommunicationChannel.AvailableMidiOutputPorts.Select(a => a.Name).ToList()));
+        }
 
 
         [Test]
         public void TestNoteOnOff()
         {
+            Console.WriteLine(string.Join(", ", MidiCommunicationChannel.AvailableMidiInputPorts.Select(a => a.Name)));
+            Console.WriteLine(string.Join(", ", MidiCommunicationChannel.AvailableMidiOutputPorts.Select(a => a.Name)));
+
             using (MidiCommunicationChannel comms =
                 new MidiCommunicationChannel(TestPort, TestPort))
             {

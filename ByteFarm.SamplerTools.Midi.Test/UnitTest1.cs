@@ -7,8 +7,6 @@ namespace Tests
 {
     public class Tests
     {
-        private readonly string S3000Port = "DIN 4";
-
         [SetUp]
         public void Setup()
         {
@@ -30,9 +28,9 @@ namespace Tests
             var connection = MidiAccessManager.Default;
 
 
-            var inputPort = connection.Inputs.First(a => a.Name == S3000Port);
+            var inputPort = connection.Inputs.First(a => a.Name == TestConstants.S3000XLPort);
 
-            var outputPort = connection.Outputs.First(a => a.Name == S3000Port);
+            var outputPort = connection.Outputs.First(a => a.Name == TestConstants.S3000XLPort);
 
 
             Assert.Pass();
