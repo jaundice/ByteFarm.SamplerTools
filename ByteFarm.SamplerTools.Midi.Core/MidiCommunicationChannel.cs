@@ -38,13 +38,13 @@ namespace ByteFarm.SamplerTools.Midi.Core
         }
 
 
-        public MidiCommunicationChannel(string inputNameOrId, string outputNameOrId) : this(MidiAccessManager.Default,
+        public MidiCommunicationChannel(string inputNameOrId, string outputNameOrId) : this((IMidiAccess2)MidiAccessManager.Default,
             inputNameOrId, outputNameOrId)
         {
         }
 
 
-        private MidiCommunicationChannel(IMidiAccess midiAccess, string inputNameOrId, string outputNameOrId) : this(
+        private MidiCommunicationChannel(IMidiAccess2 midiAccess, string inputNameOrId, string outputNameOrId) : this(
             midiAccess.OpenInputAsync(midiAccess.Inputs.First(a => a.Name == inputNameOrId || a.Id == inputNameOrId).Id)
                 .Result,
             midiAccess.OpenOutputAsync(midiAccess.Outputs.First(a => a.Name == outputNameOrId || a.Id == outputNameOrId)
@@ -52,15 +52,33 @@ namespace ByteFarm.SamplerTools.Midi.Core
         {
         }
 
+        private static readonly object _lock = new object();
+
         public MidiPortDetails OutputPortDetails { get; }
 
         public MidiPortDetails InputPortDetails { get; }
 
-        public static List<MidiPortDetails> AvailableMidiInputPorts =>
-            MidiAccessManager.Default.Inputs.Select(a => new MidiPortDetails(a)).ToList();
+        public static List<MidiPortDetails> AvailableMidiInputPorts
+        {
+            get
+            {
+                lock (_lock)
+                {
+                    return MidiAccessManager.Default.Inputs.Select(a => new MidiPortDetails(a)).ToList();
+                }
+            }
+        }
 
-        public static List<MidiPortDetails> AvailableMidiOutputPorts =>
-            MidiAccessManager.Default.Outputs.Select(a => new MidiPortDetails(a)).ToList();
+        public static List<MidiPortDetails> AvailableMidiOutputPorts
+        {
+            get
+            {
+                lock (_lock)
+                {
+                    return MidiAccessManager.Default.Outputs.Select(a => new MidiPortDetails(a)).ToList();
+                }
+            }
+        }
 
         public bool Disposed { get; private set; }
 

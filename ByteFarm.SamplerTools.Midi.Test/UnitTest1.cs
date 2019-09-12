@@ -28,9 +28,9 @@ namespace Tests
             var connection = MidiAccessManager.Default;
 
 
-            var inputPort = connection.Inputs.First(a => a.Name == TestConstants.S3000XLPort);
+            var inputPort = connection.Inputs.First(a => a.Name == TestConstants.S3000XLPortInput);
 
-            var outputPort = connection.Outputs.First(a => a.Name == TestConstants.S3000XLPort);
+            var outputPort = connection.Outputs.First(a => a.Name == TestConstants.S3000XLPortOutput);
 
 
             Assert.Pass();

@@ -14,7 +14,8 @@ namespace Tests
     public class TestCommunicationChannel
     {
 
-        private string TestPort =  TestConstants.S1100Port;
+        private string TestInputPort = TestConstants.S1100PortInput;
+        private string TestOutputPort = TestConstants.S1100PortOutput;
         private int TestMidiChannel = MidiChannel.One;
 
         [Test]
@@ -32,7 +33,7 @@ namespace Tests
             Console.WriteLine(string.Join(", ", MidiCommunicationChannel.AvailableMidiOutputPorts.Select(a => a.Name)));
 
             using (MidiCommunicationChannel comms =
-                new MidiCommunicationChannel(TestPort, TestPort))
+                new MidiCommunicationChannel(TestInputPort, TestOutputPort))
             {
                 var msg = ChannelVoiceMessage.NoteOn(TestMidiChannel, 80, 127);
 
@@ -64,7 +65,7 @@ namespace Tests
             Console.WriteLine(string.Join(", ", MidiCommunicationChannel.AvailableMidiInputPorts.Select(a => a.Name)));
 
             using (MidiCommunicationChannel comms =
-                new MidiCommunicationChannel(TestPort, TestPort))
+                new MidiCommunicationChannel(TestInputPort, TestOutputPort))
             {
 
                 comms.MidiResponse += MidiResponse;
