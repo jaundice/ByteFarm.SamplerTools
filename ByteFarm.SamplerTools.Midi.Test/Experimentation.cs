@@ -17,7 +17,7 @@ namespace ByteFarm.SamplerTools.Midi.Core
         public async Task TestConnect()
         {
             var api = MidiAccessManager.Default;
-            var output = await api.OpenOutputAsync(api.Outputs.First(a => a.Name == TestConstants.S3000XLPort).Id);
+            var output = await api.OpenOutputAsync(api.Outputs.First(a => a.Name == TestConstants.S1100Port).Id);
 
             var msg = new SXLStatusMessage(0).FormatToMidiBytes();
 
